@@ -1,0 +1,29 @@
+<div>
+  <h1>Parabéns!</h1>
+  <h4>Seu componente está sendo exibido em tela</h4>
+  <hr />
+  <h5>Como aparece o seu evento abaixo?</h5>
+
+  <div style="margin: 30px;" *ngFor="let item of evento">
+    <span *ngIf="item.onlineUrl">
+      Evento Online
+      <a href="{{ item.onlineUrl }}"> {{ item.onlineUrl }}</a>
+    </span>
+    <div>Evento: {{ item.name }}</div>
+    <div>Data: {{ item.date }}</div>
+    <div>Hora: {{ item.time }}</div>
+    <!-- <div *ngIf='!item.onlineUrl'>
+      Endereço: {{ item.location?.address }} {{ item.location?.city}} {{ item.location?.country }}
+    </div> -->
+    <div>
+      <ng-container *ngIf="item.location !==undefined">
+        <app-endereco
+          [location]="item.location"
+          [nome]="item.name"
+          (atualizaEndereco)="receberEnderecoAtualizado($event)"
+        >
+        </app-endereco>
+      </ng-container>
+    </div>
+  </div>
+</div>

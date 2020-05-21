@@ -1,0 +1,12 @@
+<label>Endereço: </label> {{ location?.address }}, {{ location?.city }}, {{location?.country}}
+<h4> Atualizar Endereço</h4>
+<div>
+    <label for="address">Endereço: </label> <br>
+    <input ref-address type="text" id="address" name="address"> <br/>
+    <label for="city">Cidade:</label> <br/>
+    <input ref-city type="text" id="city" name="city">  <br/>
+    <label for="country">Pais:</label> <br/>
+    <input ref-country type="text" id="country" name="country">
+</div>
+<br/>
+<button (click)="atualizarEndereco(address.value, city.value, country.value)">Atualizar</button>
